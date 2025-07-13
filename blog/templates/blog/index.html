@@ -1,3 +1,5 @@
+{% load static %}
+
 {% if latest_post_list %}
     <ul>
     {% for post in latest_post_list %}
@@ -7,3 +9,5 @@
 {% else %}
     <p>No Blogs are available.</p>
 {% endif %}
+
+<link rel="stylesheet" href="{% static 'blog/style.css' %}">
