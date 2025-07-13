@@ -5,18 +5,17 @@ from django.http import HttpResponse
 from .models import Post
 from django.template import loader
 from django.http import Http404
+from django.views import generic
 
-def index(request):
-    latest_post_list = Post.objects.order_by("-pub_date")[:5]
-    template = loader.get_template("blog/index.html")
-    context = {"latest_post_list": latest_post_list}
-    return HttpResponse(template.render(context, request))
-
-def detail(request, post_id):
-    # try: 
-    #     post = Post.objects.get(pk=post_id)
-    # except Post.DoesNotExist:
-    #     raise Http404("That post does not exist.")
+class IndexView(generic.ListView):
+    context_object_name = "latest_post_list"
+    # latest_post_list = Post.objects.order_by("-pub_date")[:5]
+    template_name = "blog/index.html"
+    # context = {"latest_post_list": latest_post_list}
     
-    post = get_object_or_404(Post, pk=post_id)
-    return render(request,"blog/post.html",{"post":post})
+    def get_queryset(self): 
+        return Post.objects.order_by("-pub_date")[:5]
+
+class DetailView(generic.DetailView):
+    model = Post
+    template_name = "blog/post.html"
