@@ -3,9 +3,6 @@ from django import forms
 import datetime
 from django.utils import timezone
 
-
-# Create your models here.
-
 class Post(models.Model):
     post_title = models.CharField(max_length=100)
     post_text = models.CharField(max_length=200000)
