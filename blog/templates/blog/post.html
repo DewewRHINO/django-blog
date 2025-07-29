@@ -1,24 +1,42 @@
 {% load static %}
-{% load markdownify %}
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
   {% include "./header.html" %}
+  <link rel="stylesheet" href="{% static 'blog/assets/css/toc.css' %}">
   <body class="is-preload">
     <div id="wrapper">
-      {% include "./navbar.html" %} {% include "./menu.html" %}
+      {% include "./navbar.html" %}
+      {% include "./menu.html" %}
 
-      <!-- Main Blog Post stuff-->
-      <div id="main">
-        <div class="inner">
-          <section>
-            <h1>{{post.post_title}}</h1>
-            <span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-            {{post.post_text_field|markdownify}}
-          </section>
-        </div>
+      <!-- Main content area with ToC and Post -->
+      <div class="content-wrapper">
+        
+        <!-- Sticky Table of Contents -->
+        <aside class="toc-container">
+          <h3>On this page</h3>
+          <nav id="toc">
+            {{ toc_html|safe }}
+          </nav>
+        </aside>
+
+        <!-- Main Blog Content -->
+        <main id="main">
+          <div class="inner">
+            <section>
+              <h1>{{ post.post_title }}</h1>
+              {% if post.featured_image %}
+                <span class="image main">
+                  <img src="{{ post.featured_image.url }}" alt="{{ post.post_title }}" />
+                </span>
+              {% endif %}
+              {{ post_html|safe }}
+            </section>
+          </div>
+        </main>
+
       </div>
 
       {% include "./footer.html" %}
+    </div>
   </body>
 </html>

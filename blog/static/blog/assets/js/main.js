@@ -182,4 +182,28 @@
 
 			});
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const tocLinks = document.querySelectorAll("#toc a");
+    const headings = Array.from(tocLinks).map(link =>
+      document.getElementById(decodeURIComponent(link.getAttribute("href").slice(1)))
+    );
+
+    function onScroll() {
+      const scrollPos = window.scrollY || document.documentElement.scrollTop;
+      let current = 0;
+      for (let i = 0; i < headings.length; i++) {
+        if (headings[i].offsetTop - 120 <= scrollPos) {
+          current = i;
+        }
+      }
+
+      tocLinks.forEach((link, index) => {
+        link.classList.toggle("active", index === current);
+      });
+    }
+
+    document.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // initial call
+  });
+
 })(jQuery);
