@@ -2,6 +2,7 @@ from django.db import models
 from django import forms
 import datetime
 from django.utils import timezone
+from markdownx.models import MarkdownxField
 
 class Post(models.Model):
     post_title = models.CharField(max_length=100)
@@ -10,6 +11,8 @@ class Post(models.Model):
     pub_date = models.DateTimeField("date published")
     post_style = models.CharField(max_length=6)
     post_summary = models.CharField(max_length=20)
+    post_title = models.CharField(max_length=255)
+    post_text_field = MarkdownxField()
     
     def __str__(self):
         return self.post_title
