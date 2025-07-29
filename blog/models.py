@@ -6,6 +6,7 @@ from django.utils import timezone
 class Post(models.Model):
     post_title = models.CharField(max_length=100)
     post_text = models.CharField(max_length=200000)
+    post_text_field = models.TextField(max_length=200000)
     pub_date = models.DateTimeField("date published")
     post_style = models.CharField(max_length=6)
     post_summary = models.CharField(max_length=20)

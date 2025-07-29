@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'markdownify.apps.MarkdownifyConfig',
     'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+MARKDOWNIFY = {
+    "default": {
+        "WHITELIST_TAGS": ["a", "abbr", "acronym", "b", "blockquote", "code", "em", "i",
+                           "li", "ol", "pre", "strong", "ul", "p", "br", "h1", "h2", "h3", "h4"],
+        "MARKDOWN_EXTENSIONS": [
+            "markdown.extensions.fenced_code",
+        ],
+    }
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

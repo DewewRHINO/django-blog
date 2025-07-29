@@ -1,4 +1,5 @@
 {% load static %}
+{% load markdownify %}
 
 <!DOCTYPE html>
 <html>
@@ -10,9 +11,11 @@
       <!-- Main Blog Post stuff-->
       <div id="main">
         <div class="inner">
-          <h1>{{post.post_title}}</h1>
-          <span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-          {{post.post_text}}
+          <section>
+            <h1>{{post.post_title}}</h1>
+            <span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+            {{post.post_text_field|markdownify}}
+          </section>
         </div>
       </div>
 
