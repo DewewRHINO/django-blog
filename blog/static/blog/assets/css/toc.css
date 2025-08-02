@@ -105,7 +105,7 @@
 .content-wrapper {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: left;
   gap: 4rem; /* spacing between ToC and content */
   padding: 2rem;
   max-width: 1400px;
@@ -121,7 +121,7 @@
   border-radius: 8px;
   font-size: 0.9rem;
   line-height: 1.4;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .toc-container h3 {
@@ -180,7 +180,7 @@
   border-radius: 6px;
   padding: 1.5rem;
   font-size: 0.9rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* TOC internals */

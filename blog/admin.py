@@ -1,6 +1,10 @@
 from django.contrib import admin
+from .models import Post, PostImage
 
-# Register your models here.
-from .models import Post 
+class PostImageInline(admin.TabularInline):
+    model = PostImage
+    extra = 3  # number of blank upload fields
 
-admin.site.register(Post)
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    inlines = [PostImageInline]

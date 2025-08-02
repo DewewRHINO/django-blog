@@ -19,3 +19,7 @@ class Post(models.Model):
     
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+    
+class PostImage(models.Model):
+    post = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='post_images/')
