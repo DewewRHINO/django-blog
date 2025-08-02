@@ -24,7 +24,6 @@ blocks:
           - checkout
           - cache restore
           - pip install --cache-dir .pip_cache -r requirements.txt
-          - cd django-blog
           - python manage.py makemigrations
           - python manage.py migrate
           - python manage.py test
@@ -37,9 +36,9 @@ blocks:
             - python manage.py test
         - name: Checklist
           commands:
-            - cd martor_demo
+            - cd mysite
             - python manage.py check --deploy
         - name: Styles
           commands:
             - pip install flake8
-            - flake8 martor_demo/ --max-line-length=127
+            - flake8 django-blog/ --max-line-length=127
