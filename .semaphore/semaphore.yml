@@ -31,7 +31,7 @@ blocks:
       jobs:
         - name: Unit Tests
           commands:
-            - cd martor_demo
+            - cd mysite
             - python manage.py makemigrations
             - python manage.py migrate
             - python manage.py test
