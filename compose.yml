@@ -14,7 +14,7 @@ services:
 
   django-web:
     build: .
-    container_name: django-blog
+    container_name: 14646/django-blog
     ports:
       - "8000:8000"
     depends_on:
