@@ -47,6 +47,4 @@ USER appuser
 # Expose the application port
 EXPOSE 8000 
 
-CMD ["python", "./manage.py", "runserver", "0.0.0.0:8000"]
-# Creates the database, need to change this later to use a remote database or download one from somewhere else.
-CMD ["python", "./manage.py", "migrate"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
