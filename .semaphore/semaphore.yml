@@ -5,10 +5,10 @@ agent:
     type: f1-standard-2
     os_image: ubuntu2204
 blocks:
-  - name: 'Block #1'
+  - name: Build
     task:
       jobs:
-        - name: Build
+        - name: PIp
           commands:
             - sem-version python 3.11
             - checkout
@@ -16,3 +16,30 @@ blocks:
             - cache restore
             - pip install --cache-dir .pip_cache -r requirements.txt
             - cache store
+  - name: Test
+    task:
+      prologue:
+        commands:
+          - sem-version python 3.11
+          - checkout
+          - cache restore
+          - pip install --cache-dir .pip_cache -r requirements.txt
+          - cd django-blog
+          - python manage.py makemigrations
+          - python manage.py migrate
+          - python manage.py test
+      jobs:
+        - name: Unit Tests
+          commands:
+            - cd martor_demo
+            - python manage.py makemigrations
+            - python manage.py migrate
+            - python manage.py test
+        - name: Checklist
+          commands:
+            - cd martor_demo
+            - python manage.py check --deploy
+        - name: Styles
+          commands:
+            - pip install flake8
+            - flake8 martor_demo/ --max-line-length=127
