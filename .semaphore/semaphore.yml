@@ -39,4 +39,4 @@ blocks:
         - name: Styles
           commands:
             - pip install flake8
-            - flake8 django-blog/ --max-line-length=127
+            - flake8 blog/ --max-line-length=127
