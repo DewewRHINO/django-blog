@@ -16,6 +16,7 @@ A small, Markdown-powered blog site built with Django so that I can learn django
 - Django (see `requirements.txt`)
 - `django-markdownx`, `django-markdownify`, `markdown`
 - Optional: PostgreSQL (configured in `compose.yml`) or default SQLite
+- Optional: https://docs.docker.com/engine/install/ubuntu/ if you want to Deploy via docker
 
 ## Quick start — local development (venv) 💡
 
@@ -35,8 +36,8 @@ A small, Markdown-powered blog site built with Django so that I can learn django
 
 3. Apply migrations:
 
-   ```python manage.py migrate
-
+   ```
+   python manage.py migrate
    ```
 
 4. Create a superuser to access Django admin:
