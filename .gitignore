@@ -1,5 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
 *.pyc
 *.pyd
 *.pyo
@@ -11,57 +13,96 @@ __pycache__/
 .Python
 env/
 venv/
+ENV/
+.venv/
 bin/
 include/
 lib/
 lib64/
+build/
+dist/
+downloads/
+eggs/
+.eggs/
 *.egg-info/
 .installed.cfg
 pip-log.txt
 pip-delete-this-directory.txt
+pip-wheel-metadata/
+wheels/
 
 # Django specific
 *.log
-*.pot
-*.mo
 local_settings.py
 db.sqlite3
+db.sqlite3-journal
 media/
+# Collected static files
 static_collected/
 staticfiles/
 
-# IDEs
+# Documentation
+*.pot
+*.mo
+docs/_build/
+
+# Testing & coverage
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.hypothesis/
+
+# Type checkers / caches
+.mypy_cache/
+.pyre/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Editor & IDEs
 .idea/
 .vscode/
+*.swo
 *.swp
 *.bak
-*.swo
 
 # OS generated files
 .DS_Store
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Virtual environments
+# Virtual envs
 .env/
+.env.*
 .venv/
+venv/
+env/
 
-# Testing
-.coverage
-.tox/
-
-# Node.js (if applicable)
+# Node
 node_modules/
 npm-debug.log
 yarn-debug.log
 yarn-error.log
 
-# Docker (if applicable)
+# Docker
 .dockerignore
 docker-compose.override.yml
 *.env
 
-# Other
+# Misc
 temp/
 tmp/
+*.log
+
+# Python version manager
+.python-version
+
+# Coverage and reports
+coverage.xml
+
+# End of file
